@@ -101,6 +101,7 @@ import {
   stateTokens,
   borderTokens,
   chartTokens,
+  textTokens,
   sidebarTokens,
   typeScale,
   weightScale,
@@ -207,6 +208,9 @@ export default function DesignSystemPage() {
             </SubSection>
             <SubSection id="colors-border" title="Bordi & focus">
               <TokenGrid tokens={borderTokens} />
+            </SubSection>
+            <SubSection id="colors-text" title="Testo">
+              <TokenGrid tokens={textTokens} />
             </SubSection>
             <SubSection id="colors-chart" title="Chart">
               <TokenGrid tokens={chartTokens} />

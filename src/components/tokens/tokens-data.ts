@@ -41,6 +41,15 @@ export const chartTokens = [
   { varName: "--chart-5", label: "Chart 5" },
 ];
 
+export const textTokens = [
+  { varName: "--text-primary", label: "Text primary" },
+  { varName: "--text-secondary", label: "Text secondary" },
+  { varName: "--text-tertiary", label: "Text tertiary" },
+  { varName: "--text-disabled", label: "Text disabled" },
+  { varName: "--text-inverse", label: "Text inverse" },
+  { varName: "--text-link", label: "Text link" },
+];
+
 export const sidebarTokens = [
   { varName: "--sidebar", label: "Sidebar" },
   { varName: "--sidebar-foreground", label: "Sidebar foreground" },

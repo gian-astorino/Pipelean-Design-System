@@ -16,6 +16,7 @@ import {
   stateTokens,
   borderTokens,
   chartTokens,
+  textTokens,
   sidebarTokens,
   typeScale,
   weightScale,
@@ -137,6 +138,38 @@ export default function TokensPage() {
         </DocSubSection>
         <DocSubSection id="colori-semantici-bordi" title="Bordi & focus">
           <TokenGrid tokens={borderTokens} />
+        </DocSubSection>
+        <DocSubSection
+          id="colori-semantici-testo"
+          title="Testo"
+          description="Gerarchia dei colori testo (Figma: text/*), utility Tailwind text-text-primary, text-text-secondary, …"
+        >
+          <TokenGrid tokens={textTokens} />
+          <div className="flex flex-col gap-2 rounded-lg border p-6">
+            <p className="text-text-primary text-base">
+              Text primary — titoli e testo principale, massimo contrasto.
+            </p>
+            <p className="text-text-secondary text-base">
+              Text secondary — contenuti di supporto, descrizioni.
+            </p>
+            <p className="text-text-tertiary text-base">
+              Text tertiary — dettagli meno rilevanti, metadati.
+            </p>
+            <p className="text-text-disabled text-base">
+              Text disabled — stato non interattivo.
+            </p>
+            <a
+              href="#colori-semantici-testo"
+              className="text-text-link w-fit text-base underline-offset-4 hover:underline"
+            >
+              Text link — elementi cliccabili.
+            </a>
+            <div className="bg-primary mt-1 w-fit rounded-md px-3 py-2">
+              <p className="text-text-inverse text-base">
+                Text inverse — su sfondi scuri o colorati.
+              </p>
+            </div>
+          </div>
         </DocSubSection>
         <DocSubSection id="colori-semantici-chart" title="Chart">
           <TokenGrid tokens={chartTokens} />

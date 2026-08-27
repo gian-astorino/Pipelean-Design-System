@@ -198,6 +198,16 @@
   --sidebar-accent-foreground: var(--color-blue-900);
   --sidebar-border: var(--color-neutral-200);
   --sidebar-ring: var(--color-blue-500);
+
+  /* text roles (Figma: text/*) — a finer text-color hierarchy than
+     foreground/muted-foreground alone provide. Additive: existing
+     foreground/muted-foreground tokens are untouched. */
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-600);
+  --text-tertiary: var(--color-neutral-400);
+  --text-disabled: var(--color-neutral-300);
+  --text-inverse: var(--color-base-white);
+  --text-link: var(--color-blue-600);
 }
 
 .dark {
@@ -247,6 +257,13 @@
   --sidebar-accent-foreground: var(--color-blue-200);
   --sidebar-border: color-mix(in srgb, var(--color-base-white) 10%, transparent);
   --sidebar-ring: var(--color-blue-400);
+
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-400);
+  --text-tertiary: var(--color-neutral-600);
+  --text-disabled: var(--color-neutral-700);
+  --text-inverse: var(--color-neutral-900);
+  --text-link: var(--color-blue-400);
 }
 
 @theme inline {
@@ -286,6 +303,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* text roles → text-text-primary, text-text-link, etc. (the doubled
+     "text-" is the Tailwind utility prefix plus our token name — see
+     the --text-* block above for why this is a separate layer) */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-inverse: var(--text-inverse);
+  --color-text-link: var(--text-link);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
