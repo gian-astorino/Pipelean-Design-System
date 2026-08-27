@@ -208,6 +208,28 @@
   --text-disabled: var(--color-neutral-300);
   --text-inverse: var(--color-base-white);
   --text-link: var(--color-blue-600);
+
+  /* surfaces (Figma: surface/*) — background variants beyond
+     background/card/popover; feed the action/* button tokens below. */
+  --surface-default: var(--background);
+  --surface-raised: color-mix(in srgb, var(--color-neutral-900) 5%, transparent);
+  --surface-sunken: var(--color-neutral-100);
+
+  /* action tokens (Figma: action/primary, action/secondary,
+     action/ghost) — Button's variants are built exclusively from
+     these (plus --text-disabled and --border, already defined). */
+  --action-primary: var(--color-neutral-900);
+  --action-primary-foreground: var(--color-base-white);
+  --action-primary-hover: var(--color-neutral-800);
+  --action-primary-disabled: var(--color-neutral-200);
+
+  --action-secondary: var(--surface-default);
+  --action-secondary-foreground: var(--color-neutral-900);
+  --action-secondary-hover: var(--color-neutral-100);
+  --action-secondary-disabled: var(--surface-default);
+
+  --action-ghost-foreground: var(--color-neutral-900);
+  --action-ghost-hover: var(--surface-raised);
 }
 
 .dark {
@@ -264,6 +286,23 @@
   --text-disabled: var(--color-neutral-700);
   --text-inverse: var(--color-neutral-900);
   --text-link: var(--color-blue-400);
+
+  --surface-default: var(--background);
+  --surface-raised: var(--color-neutral-800);
+  --surface-sunken: color-mix(in srgb, var(--color-base-white) 6%, transparent);
+
+  --action-primary: var(--color-neutral-100);
+  --action-primary-foreground: var(--color-base-black);
+  --action-primary-hover: var(--color-neutral-200);
+  --action-primary-disabled: var(--color-neutral-700);
+
+  --action-secondary: var(--surface-default);
+  --action-secondary-foreground: var(--color-neutral-50);
+  --action-secondary-hover: var(--surface-sunken);
+  --action-secondary-disabled: var(--surface-default);
+
+  --action-ghost-foreground: var(--color-neutral-300);
+  --action-ghost-hover: var(--color-neutral-800);
 }
 
 @theme inline {
@@ -313,6 +352,21 @@
   --color-text-disabled: var(--text-disabled);
   --color-text-inverse: var(--text-inverse);
   --color-text-link: var(--text-link);
+
+  --color-surface-default: var(--surface-default);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-foreground: var(--action-primary-foreground);
+  --color-action-primary-hover: var(--action-primary-hover);
+  --color-action-primary-disabled: var(--action-primary-disabled);
+  --color-action-secondary: var(--action-secondary);
+  --color-action-secondary-foreground: var(--action-secondary-foreground);
+  --color-action-secondary-hover: var(--action-secondary-hover);
+  --color-action-secondary-disabled: var(--action-secondary-disabled);
+  --color-action-ghost-foreground: var(--action-ghost-foreground);
+  --color-action-ghost-hover: var(--action-ghost-hover);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

@@ -50,6 +50,25 @@ export const textTokens = [
   { varName: "--text-link", label: "Text link" },
 ];
 
+export const surfaceExtraTokens = [
+  { varName: "--surface-default", label: "Surface default" },
+  { varName: "--surface-raised", label: "Surface raised" },
+  { varName: "--surface-sunken", label: "Surface sunken" },
+];
+
+export const actionTokens = [
+  { varName: "--action-primary", label: "Action primary" },
+  { varName: "--action-primary-foreground", label: "Action primary fg" },
+  { varName: "--action-primary-hover", label: "Action primary hover" },
+  { varName: "--action-primary-disabled", label: "Action primary disabled" },
+  { varName: "--action-secondary", label: "Action secondary" },
+  { varName: "--action-secondary-foreground", label: "Action secondary fg" },
+  { varName: "--action-secondary-hover", label: "Action secondary hover" },
+  { varName: "--action-secondary-disabled", label: "Action secondary disabled" },
+  { varName: "--action-ghost-foreground", label: "Action ghost fg" },
+  { varName: "--action-ghost-hover", label: "Action ghost hover" },
+];
+
 export const sidebarTokens = [
   { varName: "--sidebar", label: "Sidebar" },
   { varName: "--sidebar-foreground", label: "Sidebar foreground" },

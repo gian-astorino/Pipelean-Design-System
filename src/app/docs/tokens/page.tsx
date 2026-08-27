@@ -1,6 +1,7 @@
 import { StarIcon } from "@phosphor-icons/react/dist/ssr";
 
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import { TokenGrid } from "@/components/tokens/token-grid";
 import { RadiusPreview } from "@/components/tokens/radius-preview";
 import { PrimitiveRamp } from "@/components/tokens/primitive-palette";
@@ -17,6 +18,8 @@ import {
   borderTokens,
   chartTokens,
   textTokens,
+  surfaceExtraTokens,
+  actionTokens,
   sidebarTokens,
   typeScale,
   weightScale,
@@ -169,6 +172,29 @@ export default function TokensPage() {
                 Text inverse — su sfondi scuri o colorati.
               </p>
             </div>
+          </div>
+        </DocSubSection>
+        <DocSubSection
+          id="colori-semantici-superfici"
+          title="Superfici estese"
+          description="Figma: surface/default, surface/raised, surface/sunken — alimentano i token azione qui sotto."
+        >
+          <TokenGrid tokens={surfaceExtraTokens} />
+        </DocSubSection>
+        <DocSubSection
+          id="colori-semantici-azioni"
+          title="Azioni (bottoni)"
+          description="Figma: action/primary, action/secondary, action/ghost — Button usa esclusivamente questi token per variant default/outline/ghost."
+        >
+          <TokenGrid tokens={actionTokens} />
+          <div className="flex flex-wrap items-center gap-3 rounded-lg border p-6">
+            <Button>Primary</Button>
+            <Button variant="outline">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button disabled>Primary disabled</Button>
+            <Button variant="outline" disabled>
+              Secondary disabled
+            </Button>
           </div>
         </DocSubSection>
         <DocSubSection id="colori-semantici-chart" title="Chart">
