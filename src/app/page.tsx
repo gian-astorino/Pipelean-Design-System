@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { toast } from "sonner";
 import {
   BellIcon,
@@ -134,6 +135,9 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline">maia · neutral · blue</Badge>
+          <Button variant="outline" size="sm" render={<Link href="/design-system" />}>
+            Apri vista live
+          </Button>
           <ModeToggle />
         </div>
       </header>
