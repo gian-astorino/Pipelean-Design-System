@@ -32,13 +32,14 @@ const buttonVariants = cva(
       },
       // Padding follows the spacing scale directly: default is
       // vertical token 2 / horizontal token 3, sm and lg step that
-      // same pair down/up by 1 (sm: 1/2, lg: 3/4). The icon-adjusted
-      // has-[>svg] padding is always one token step below the resting
-      // horizontal value, for every size.
+      // same pair down/up by 1 (sm: 1/2, lg: 3/4). Horizontal padding
+      // stays that same token whether or not there's an icon — no
+      // has-[>svg] reduction, so it never falls out of sync with the
+      // requested value.
       size: {
-        default: "h-9 px-3 py-2 has-[>svg]:px-2",
-        sm: "h-8 gap-1.5 px-2 py-1 has-[>svg]:px-1",
-        lg: "h-10 px-4 py-3 has-[>svg]:px-3",
+        default: "h-9 px-3 py-2",
+        sm: "h-8 gap-1.5 px-2 py-1",
+        lg: "h-10 px-4 py-3",
       },
       // Icon-only isn't a size of its own — it's every size, square and
       // without label padding, so an icon button shares the exact height
