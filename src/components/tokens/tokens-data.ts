@@ -116,18 +116,18 @@ export const shadowScale = [
 ];
 
 export const spacingScale = [
-  { step: "1", rem: "0.25rem" },
-  { step: "2", rem: "0.5rem" },
-  { step: "3", rem: "0.75rem" },
-  { step: "4", rem: "1rem" },
-  { step: "5", rem: "1.25rem" },
-  { step: "6", rem: "1.5rem" },
-  { step: "8", rem: "2rem" },
-  { step: "10", rem: "2.5rem" },
-  { step: "12", rem: "3rem" },
-  { step: "16", rem: "4rem" },
-  { step: "20", rem: "5rem" },
-  { step: "24", rem: "6rem" },
+  { step: "1", px: "4px" },
+  { step: "2", px: "8px" },
+  { step: "3", px: "12px" },
+  { step: "4", px: "16px" },
+  { step: "5", px: "20px" },
+  { step: "6", px: "24px" },
+  { step: "8", px: "32px" },
+  { step: "10", px: "40px" },
+  { step: "12", px: "48px" },
+  { step: "16", px: "64px" },
+  { step: "20", px: "80px" },
+  { step: "24", px: "96px" },
 ];
 
 export const iconSizeScale = [

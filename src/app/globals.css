@@ -16,6 +16,16 @@
 /* ---------------------------------------------------------------------- */
 
 @theme {
+  /* Base spacing unit for every non-text utility (p-*, m-*, gap-*, w-*,
+     h-*, size-*, inset-*, translate-*, …) — px instead of Tailwind's
+     default 0.25rem, so layout dimensions never depend on the root font
+     size. Text utilities (text-*, leading-*) are untouched by this and
+     stay in rem, since font size SHOULD scale with the user's browser/
+     accessibility text-size setting. 4px keeps every multiple identical
+     to the previous rem values at the default 16px root size (p-4 was
+     1rem/16px, is now 4px*4=16px). */
+  --spacing: 4px;
+
   --color-neutral-50: #fafaf9;
   --color-neutral-100: #f5f5f4;
   --color-neutral-200: #e7e5e4;
@@ -145,7 +155,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 10px;
 
   /* base surfaces — neutral primitive ramp */
   --background: var(--color-base-white);

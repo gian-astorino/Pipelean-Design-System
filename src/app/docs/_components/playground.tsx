@@ -84,7 +84,7 @@ function Playground({
           )}
         >
           {viewport === "mobile" ? (
-            <div className="bg-background w-[360px] max-w-full rounded-[1.75rem] border-4 shadow-lg">
+            <div className="bg-background w-[360px] max-w-full rounded-[28px] border-4 shadow-lg">
               <div className="bg-muted-foreground/30 mx-auto mt-2 h-1 w-10 rounded-full" />
               <div className="flex min-h-[420px] items-center justify-center overflow-x-hidden p-6">
                 {children}

@@ -62,10 +62,10 @@ export default function TokensPage() {
                 </span>
                 <span
                   className="bg-primary h-3 shrink-0 rounded-sm"
-                  style={{ width: s.rem }}
+                  style={{ width: s.px }}
                 />
                 <span className="text-muted-foreground font-mono text-[11px]">
-                  {s.rem}
+                  {s.px}
                 </span>
               </button>
             ))}
