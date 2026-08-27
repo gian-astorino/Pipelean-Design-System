@@ -221,7 +221,7 @@
   --action-primary: var(--color-neutral-900);
   --action-primary-foreground: var(--color-base-white);
   --action-primary-hover: var(--color-neutral-800);
-  --action-primary-disabled: var(--color-neutral-200);
+  --action-primary-disabled: var(--color-neutral-100);
 
   --action-secondary: var(--surface-default);
   --action-secondary-foreground: var(--color-neutral-900);
@@ -294,7 +294,7 @@
   --action-primary: var(--color-neutral-100);
   --action-primary-foreground: var(--color-base-black);
   --action-primary-hover: var(--color-neutral-200);
-  --action-primary-disabled: var(--color-neutral-700);
+  --action-primary-disabled: var(--color-neutral-800);
 
   --action-secondary: var(--surface-default);
   --action-secondary-foreground: var(--color-neutral-50);
