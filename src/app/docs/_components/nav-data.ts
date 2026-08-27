@@ -57,6 +57,7 @@ export const NAV: DocsNavGroup[] = [
     label: "Overlay",
     items: [
       { slug: "dialog", label: "Dialog" },
+      { slug: "alert-dialog", label: "Alert Dialog" },
       { slug: "popover", label: "Popover" },
       { slug: "dropdown-menu", label: "Dropdown Menu" },
       { slug: "tooltip", label: "Tooltip" },
