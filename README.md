@@ -1,1 +1,78 @@
-# Pipelean-Design-System
+# Pipelean Design System
+
+Design system di Pipelean, basato su [shadcn/ui](https://ui.shadcn.com), Next.js 16 (App Router) e Tailwind CSS v4.
+
+## Preset
+
+Il progetto replica la configurazione del preset shadcn `b1ZOMGTQW`:
+
+| Opzione | Valore |
+| --- | --- |
+| `style` | `maia` |
+| `base` | `base` ([Base UI](https://base-ui.com), non Radix) |
+| `baseColor` | `neutral` |
+| `theme` | `blue` |
+| `chartColor` | `blue` |
+| `iconLibrary` | `phosphor` ([@phosphor-icons/react](https://phosphoricons.com)) |
+| `font` | `inter` |
+| `radius` | `default` (`0.625rem`) |
+| `menuAccent` | `subtle` |
+| `menuColor` | `default` |
+
+> **Nota sulla generazione:** l'ambiente di questa sessione non ha accesso di rete a `ui.shadcn.com` (bloccato dalla policy di egress), quindi non è stato possibile eseguire
+> `pnpm dlx shadcn@latest init --preset b1ZOMGTQW --template next` così com'è. I parametri del preset sono comunque noti (decodificati localmente dal pacchetto `shadcn` via
+> `decodePreset`) e sono stati ricostruiti a mano: token colore in OKLCH, font, radius e componenti in `src/components/ui` seguono le convenzioni shadcn standard e usano
+> [Base UI](https://base-ui.com) come libreria di primitive accessibili al posto di Radix, così come previsto da `base: "base"`. Se in futuro `ui.shadcn.com` sarà raggiungibile,
+> puoi rilanciare il comando originale (o `pnpm dlx shadcn add <componente>`) per scaricare le versioni ufficiali e confrontarle con quelle qui presenti.
+
+## Stack
+
+- **Next.js 16** (App Router, RSC, Turbopack)
+- **Tailwind CSS v4** (config CSS-first in `src/app/globals.css`)
+- **[Base UI](https://base-ui.com)** — primitive accessibili headless (Dialog, Popover, Menu, Select, Tabs, Tooltip, Accordion, Switch, Checkbox, Radio, Avatar, Progress, Separator...)
+- **[Phosphor Icons](https://phosphoricons.com)** — libreria icone
+- **class-variance-authority** + **tailwind-merge** — varianti dei componenti
+- **next-themes** — dark mode
+- **sonner** — toast/notifiche
+
+## Struttura
+
+```
+components.json            # config shadcn (style, base, preset, aliases)
+src/
+  app/
+    globals.css             # design token (colori OKLCH, radius, font) + tema dark
+    layout.tsx               # font Inter, ThemeProvider, Toaster
+    page.tsx                 # showcase/vetrina di tutti i componenti e token
+  components/
+    ui/                      # componenti di base (button, card, dialog, select, ...)
+    theme-provider.tsx
+    mode-toggle.tsx
+  lib/
+    utils.ts                 # helper cn()
+```
+
+## Sviluppo
+
+```bash
+pnpm install
+pnpm dev      # http://localhost:3000 — vetrina del design system
+pnpm build
+pnpm lint
+```
+
+## Estendere il design system
+
+Aggiungi nuovi componenti in `src/components/ui/` seguendo le convenzioni già presenti:
+
+- `"use client"` in cima ai file che usano hook o primitive Base UI interattive
+- `data-slot="<nome-componente>"` sull'elemento radice, per restare coerenti con le convenzioni shadcn
+- varianti con `class-variance-authority` (`cva`)
+- classi unite con l'helper `cn()` da `@/lib/utils`
+- icone da `@phosphor-icons/react` (usa i nomi con suffisso `Icon`, es. `CheckIcon`, non l'alias deprecato `Check`)
+
+Quando la rete verso `ui.shadcn.com` sarà disponibile in questo ambiente, è possibile usare normalmente la CLI ufficiale:
+
+```bash
+pnpm dlx shadcn@latest add <component>
+```
