@@ -11,21 +11,21 @@ const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow,background-color,border-color] disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
   {
     variants: {
-      // default/outline/ghost are built exclusively from the Figma
+      // default/secondary/ghost are built exclusively from the Figma
       // action/primary, action/secondary and action/ghost tokens
       // (see globals.css) — bg, text, hover and disabled colors all
-      // come from --action-*, never from --primary/--secondary/--accent.
-      // destructive, secondary and link aren't covered by an action/*
-      // spec yet, so they keep their previous token wiring.
+      // come from --action-*, never from --primary/--accent. There's
+      // no separate "outline" variant: action/secondary (bordered) is
+      // what "secondary" is.
+      // destructive and link aren't covered by an action/* spec yet,
+      // so they keep their previous token wiring.
       variant: {
         default:
           "bg-action-primary text-action-primary-foreground shadow-xs hover:bg-action-primary-hover disabled:opacity-100 disabled:shadow-none disabled:bg-action-primary-disabled disabled:text-text-disabled",
         destructive:
           "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 disabled:opacity-50",
-        outline:
-          "border border-border bg-action-secondary text-action-secondary-foreground shadow-xs hover:bg-action-secondary-hover disabled:opacity-100 disabled:shadow-none disabled:bg-action-secondary-disabled disabled:text-text-disabled",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 disabled:opacity-50",
+          "border border-border bg-action-secondary text-action-secondary-foreground shadow-xs hover:bg-action-secondary-hover disabled:opacity-100 disabled:shadow-none disabled:bg-action-secondary-disabled disabled:text-text-disabled",
         ghost:
           "text-action-ghost-foreground hover:bg-action-ghost-hover disabled:opacity-100 disabled:text-text-disabled",
         link: "text-text-link underline-offset-4 hover:underline disabled:opacity-50",

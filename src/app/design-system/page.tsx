@@ -146,7 +146,7 @@ export default function DesignSystemPage() {
           <p className="text-sm font-medium">Design System — live</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" render={<Link href="/docs" />}>
+          <Button variant="secondary" size="sm" render={<Link href="/docs" />}>
             Componenti
           </Button>
           <ModeToggle />
@@ -295,14 +295,13 @@ export default function DesignSystemPage() {
                   <RocketLaunchIcon /> Default
                 </Button>
                 <Button variant="secondary">Secondary</Button>
-                <Button variant="outline">Outline</Button>
                 <Button variant="ghost">Ghost</Button>
                 <Button variant="link">Link</Button>
                 <Button variant="destructive">
                   <TrashIcon /> Destructive
                 </Button>
                 <Button loading>Loading</Button>
-                <Button size="icon" variant="outline">
+                <Button size="icon" variant="secondary">
                   <PlusIcon />
                 </Button>
               </div>
@@ -371,14 +370,14 @@ export default function DesignSystemPage() {
                     <div className="flex gap-2">
                       <Button
                         size="sm"
-                        variant="outline"
+                        variant="secondary"
                         onClick={() => setProgress((p) => Math.max(0, p - 10))}
                       >
                         -10
                       </Button>
                       <Button
                         size="sm"
-                        variant="outline"
+                        variant="secondary"
                         onClick={() => setProgress((p) => Math.min(100, p + 10))}
                       >
                         +10
@@ -417,7 +416,7 @@ export default function DesignSystemPage() {
                   </div>
                 </div>
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   onClick={() =>
                     toast("Pipeline avviata", {
                       description: "Il deploy di Pipelean è in corso.",
@@ -433,7 +432,7 @@ export default function DesignSystemPage() {
             <SubSection id="components-overlays" title="Overlay">
               <div className="flex flex-wrap items-center gap-3">
                 <Dialog>
-                  <DialogTrigger render={<Button variant="outline">Dialog</Button>} />
+                  <DialogTrigger render={<Button variant="secondary">Dialog</Button>} />
                   <DialogContent>
                     <DialogHeader>
                       <DialogTitle>Elimina progetto</DialogTitle>
@@ -442,14 +441,14 @@ export default function DesignSystemPage() {
                       </DialogDescription>
                     </DialogHeader>
                     <DialogFooter>
-                      <Button variant="outline">Annulla</Button>
+                      <Button variant="secondary">Annulla</Button>
                       <Button variant="destructive">Elimina</Button>
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
 
                 <Popover>
-                  <PopoverTrigger render={<Button variant="outline">Popover</Button>} />
+                  <PopoverTrigger render={<Button variant="secondary">Popover</Button>} />
                   <PopoverContent>
                     <p className="text-sm font-medium">Impostazioni rapide</p>
                     <p className="text-muted-foreground text-sm">
@@ -461,7 +460,7 @@ export default function DesignSystemPage() {
                 <DropdownMenu>
                   <DropdownMenuTrigger
                     render={
-                      <Button variant="outline">
+                      <Button variant="secondary">
                         <GearSixIcon /> Menu
                       </Button>
                     }
@@ -484,7 +483,7 @@ export default function DesignSystemPage() {
                 <Tooltip>
                   <TooltipTrigger
                     render={
-                      <Button variant="outline" size="icon">
+                      <Button variant="secondary" size="icon">
                         <CalendarBlankIcon />
                       </Button>
                     }

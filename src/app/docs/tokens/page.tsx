@@ -184,15 +184,15 @@ export default function TokensPage() {
         <DocSubSection
           id="colori-semantici-azioni"
           title="Azioni (bottoni)"
-          description="Figma: action/primary, action/secondary, action/ghost — Button usa esclusivamente questi token per variant default/outline/ghost."
+          description="Figma: action/primary, action/secondary, action/ghost — Button usa esclusivamente questi token per variant default/secondary/ghost."
         >
           <TokenGrid tokens={actionTokens} />
           <div className="flex flex-wrap items-center gap-3 rounded-lg border p-6">
             <Button>Primary</Button>
-            <Button variant="outline">Secondary</Button>
+            <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
             <Button disabled>Primary disabled</Button>
-            <Button variant="outline" disabled>
+            <Button variant="secondary" disabled>
               Secondary disabled
             </Button>
           </div>

@@ -135,10 +135,10 @@ export default function Home() {
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline">maia · neutral · blue</Badge>
-          <Button variant="outline" size="sm" render={<Link href="/design-system" />}>
+          <Button variant="secondary" size="sm" render={<Link href="/design-system" />}>
             Vista live
           </Button>
-          <Button variant="outline" size="sm" render={<Link href="/docs" />}>
+          <Button variant="secondary" size="sm" render={<Link href="/docs" />}>
             Componenti
           </Button>
           <ModeToggle />
@@ -225,14 +225,13 @@ export default function Home() {
             <RocketLaunchIcon /> Default
           </Button>
           <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="link">Link</Button>
           <Button variant="destructive">
             <TrashIcon /> Destructive
           </Button>
           <Button loading>Loading</Button>
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="secondary">
             <PlusIcon />
           </Button>
           <Button size="sm">Small</Button>
@@ -342,14 +341,14 @@ export default function Home() {
               <div className="flex gap-2">
                 <Button
                   size="sm"
-                  variant="outline"
+                  variant="secondary"
                   onClick={() => setProgress((p) => Math.max(0, p - 10))}
                 >
                   -10
                 </Button>
                 <Button
                   size="sm"
-                  variant="outline"
+                  variant="secondary"
                   onClick={() => setProgress((p) => Math.min(100, p + 10))}
                 >
                   +10
@@ -461,7 +460,7 @@ export default function Home() {
         />
         <div className="flex flex-wrap items-center gap-3">
           <Dialog>
-            <DialogTrigger render={<Button variant="outline">Apri dialog</Button>} />
+            <DialogTrigger render={<Button variant="secondary">Apri dialog</Button>} />
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Elimina progetto</DialogTitle>
@@ -471,14 +470,14 @@ export default function Home() {
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
-                <Button variant="outline">Annulla</Button>
+                <Button variant="secondary">Annulla</Button>
                 <Button variant="destructive">Elimina</Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>
 
           <Popover>
-            <PopoverTrigger render={<Button variant="outline">Apri popover</Button>} />
+            <PopoverTrigger render={<Button variant="secondary">Apri popover</Button>} />
             <PopoverContent>
               <div className="grid gap-2">
                 <p className="text-sm font-medium">Impostazioni rapide</p>
@@ -492,7 +491,7 @@ export default function Home() {
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <Button variant="outline">
+                <Button variant="secondary">
                   <GearSixIcon /> Menu
                 </Button>
               }
@@ -519,7 +518,7 @@ export default function Home() {
           <Tooltip>
             <TooltipTrigger
               render={
-                <Button variant="outline" size="icon">
+                <Button variant="secondary" size="icon">
                   <CalendarBlankIcon />
                 </Button>
               }
@@ -528,7 +527,7 @@ export default function Home() {
           </Tooltip>
 
           <Button
-            variant="outline"
+            variant="secondary"
             onClick={() =>
               toast("Pipeline avviata", {
                 description: "Il deploy di Pipelean è in corso.",

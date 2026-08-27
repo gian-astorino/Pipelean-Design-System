@@ -28,10 +28,10 @@ export default function ProgressDocPage() {
               <div className="grid gap-1.5">
                 <p className="text-muted-foreground text-xs">Value: {value}%</p>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline" onClick={() => setValue((v) => Math.max(0, v - 10))}>
+                  <Button size="sm" variant="secondary" onClick={() => setValue((v) => Math.max(0, v - 10))}>
                     -10
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => setValue((v) => Math.min(100, v + 10))}>
+                  <Button size="sm" variant="secondary" onClick={() => setValue((v) => Math.min(100, v + 10))}>
                     +10
                   </Button>
                 </div>

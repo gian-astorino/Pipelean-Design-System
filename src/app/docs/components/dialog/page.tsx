@@ -20,7 +20,7 @@ export default function DialogDocPage() {
   const [showClose, setShowClose] = React.useState(true);
 
   const closeProp = showClose ? "" : " showCloseButton={false}";
-  const code = `<Dialog>\n  <DialogTrigger render={<Button variant="outline">Apri</Button>} />\n  <DialogContent${closeProp}>\n    <DialogHeader>\n      <DialogTitle>${title}</DialogTitle>\n      <DialogDescription>\n        Questa azione non può essere annullata.\n      </DialogDescription>\n    </DialogHeader>\n    <DialogFooter>\n      <Button variant="outline">Annulla</Button>\n      <Button variant="destructive">Elimina</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>`;
+  const code = `<Dialog>\n  <DialogTrigger render={<Button variant="secondary">Apri</Button>} />\n  <DialogContent${closeProp}>\n    <DialogHeader>\n      <DialogTitle>${title}</DialogTitle>\n      <DialogDescription>\n        Questa azione non può essere annullata.\n      </DialogDescription>\n    </DialogHeader>\n    <DialogFooter>\n      <Button variant="secondary">Annulla</Button>\n      <Button variant="destructive">Elimina</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>`;
 
   return (
     <div className="flex flex-col gap-10">
@@ -40,7 +40,7 @@ export default function DialogDocPage() {
           }
         >
           <Dialog>
-            <DialogTrigger render={<Button variant="outline">Apri dialog</Button>} />
+            <DialogTrigger render={<Button variant="secondary">Apri dialog</Button>} />
             <DialogContent showCloseButton={showClose}>
               <DialogHeader>
                 <DialogTitle>{title}</DialogTitle>
@@ -49,7 +49,7 @@ export default function DialogDocPage() {
                 </DialogDescription>
               </DialogHeader>
               <DialogFooter>
-                <Button variant="outline">Annulla</Button>
+                <Button variant="secondary">Annulla</Button>
                 <Button variant="destructive">Elimina</Button>
               </DialogFooter>
             </DialogContent>

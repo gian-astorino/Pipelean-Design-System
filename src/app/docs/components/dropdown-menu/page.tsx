@@ -22,7 +22,7 @@ export default function DropdownMenuDocPage() {
   const [showLabel, setShowLabel] = React.useState(true);
 
   const alignProp = align !== "start" ? ` align="${align}"` : "";
-  const code = `<DropdownMenu>\n  <DropdownMenuTrigger render={<Button variant="outline">Menu</Button>} />\n  <DropdownMenuContent${alignProp}>\n${
+  const code = `<DropdownMenu>\n  <DropdownMenuTrigger render={<Button variant="secondary">Menu</Button>} />\n  <DropdownMenuContent${alignProp}>\n${
     showLabel ? '    <DropdownMenuLabel>Il mio account</DropdownMenuLabel>\n    <DropdownMenuSeparator />\n' : ""
   }    <DropdownMenuItem>\n      <UserIcon /> Profilo\n    </DropdownMenuItem>\n    <DropdownMenuItem>\n      <CreditCardIcon /> Fatturazione\n    </DropdownMenuItem>\n    <DropdownMenuSeparator />\n    <DropdownMenuItem variant="destructive">\n      <TrashIcon /> Elimina account\n    </DropdownMenuItem>\n  </DropdownMenuContent>\n</DropdownMenu>`;
 
@@ -51,7 +51,7 @@ export default function DropdownMenuDocPage() {
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <Button variant="outline">
+                <Button variant="secondary">
                   <GearSixIcon /> Menu
                 </Button>
               }

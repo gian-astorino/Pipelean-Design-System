@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { DocHeader, Demo, DocSection } from "../../_components/doc-page";
 import { ControlsPanel, ControlSelect, ControlSwitch, ControlText } from "../../_components/controls";
 
-const VARIANTS = ["default", "secondary", "outline", "ghost", "link", "destructive"] as const;
+const VARIANTS = ["default", "secondary", "ghost", "link", "destructive"] as const;
 const SIZES = ["default", "sm", "lg", "icon"] as const;
 
 export default function ButtonDocPage() {
@@ -99,8 +99,8 @@ export default function ButtonDocPage() {
         <div className="flex flex-wrap items-center gap-3 rounded-lg border p-6">
           <Button loading>Loading</Button>
           <Button disabled>Disabled</Button>
-          <Button variant="outline" disabled>
-            Disabled outline
+          <Button variant="secondary" disabled>
+            Disabled secondary
           </Button>
         </div>
       </DocSection>

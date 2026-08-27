@@ -26,7 +26,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           </Link>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" render={<Link href="/design-system" />}>
+          <Button variant="secondary" size="sm" render={<Link href="/design-system" />}>
             Vista live
           </Button>
           <ModeToggle />

@@ -19,7 +19,7 @@ export default function PopoverDocPage() {
   if (align !== "center") props.push(`align="${align}"`);
   const propsStr = props.length ? " " + props.join(" ") : "";
 
-  const code = `<Popover>\n  <PopoverTrigger render={<Button variant="outline">Apri</Button>} />\n  <PopoverContent${propsStr}>\n    <p className="text-sm font-medium">Impostazioni rapide</p>\n    <p className="text-muted-foreground text-sm">\n      Configura le preferenze da qui.\n    </p>\n  </PopoverContent>\n</Popover>`;
+  const code = `<Popover>\n  <PopoverTrigger render={<Button variant="secondary">Apri</Button>} />\n  <PopoverContent${propsStr}>\n    <p className="text-sm font-medium">Impostazioni rapide</p>\n    <p className="text-muted-foreground text-sm">\n      Configura le preferenze da qui.\n    </p>\n  </PopoverContent>\n</Popover>`;
 
   return (
     <div className="flex flex-col gap-10">
@@ -49,7 +49,7 @@ export default function PopoverDocPage() {
           }
         >
           <Popover>
-            <PopoverTrigger render={<Button variant="outline">Apri popover</Button>} />
+            <PopoverTrigger render={<Button variant="secondary">Apri popover</Button>} />
             <PopoverContent side={side} align={align}>
               <p className="text-sm font-medium">Impostazioni rapide</p>
               <p className="text-muted-foreground text-sm">
