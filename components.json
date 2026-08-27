@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "maia",
+  "base": "base",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "theme": "blue",
+  "chartColor": "blue",
+  "font": "inter",
+  "fontHeading": "inherit",
+  "radius": "default",
+  "menuAccent": "subtle",
+  "menuColor": "default",
+  "iconLibrary": "phosphor",
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  }
+}
