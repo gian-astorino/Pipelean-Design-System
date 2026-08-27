@@ -152,10 +152,22 @@
   /* Not wired to any semantic token (kept blue as primary, per product
      decision) — exposed as a swatch/utility (bg-brand, text-brand) only. */
   --color-brand: #f5f15d;
+
+  /* Radius scale (Figma) — literal, theme-invariant, like spacing/color
+     above. --radius-md is the default applied across the component
+     library (Input, Textarea, Card, Dialog, Popover, Dropdown, Select,
+     Alert, Tabs, …); pill-shaped components (Button, Switch, Avatar,
+     Progress, Badge dot, …) use rounded-full instead and ignore this
+     scale entirely. xs/sm stay available for small nested elements
+     (Checkbox, menu-item hover rows) where md would be disproportionate. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 36px;
 }
 
 :root {
-  --radius: 10px;
 
   /* base surfaces — neutral primitive ramp */
   --background: var(--color-base-white);
@@ -377,11 +389,6 @@
   --color-action-secondary-disabled: var(--action-secondary-disabled);
   --color-action-ghost-foreground: var(--action-ghost-foreground);
   --color-action-ghost-hover: var(--action-ghost-hover);
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

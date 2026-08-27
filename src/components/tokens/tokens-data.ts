@@ -101,8 +101,9 @@ export const weightScale = [
 ];
 
 export const radiusScale = [
+  { varName: "--radius-xs", className: "rounded-xs", label: "xs" },
   { varName: "--radius-sm", className: "rounded-sm", label: "sm" },
-  { varName: "--radius-md", className: "rounded-md", label: "md" },
+  { varName: "--radius-md", className: "rounded-md", label: "md · default" },
   { varName: "--radius-lg", className: "rounded-lg", label: "lg" },
   { varName: "--radius-xl", className: "rounded-xl", label: "xl" },
 ];
