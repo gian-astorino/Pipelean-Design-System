@@ -56,9 +56,32 @@ src/
 
 ```bash
 pnpm install
-pnpm dev      # http://localhost:3000 — vetrina del design system
+pnpm dev      # http://localhost:3000 — homepage
+              # http://localhost:3000/design-system — vetrina "live" con token, tipografia, icone
 pnpm build
 pnpm lint
+```
+
+## Pagina pubblica (GitHub Pages)
+
+Il sito è configurato come export statico (`output: "export"` in `next.config.ts`) e viene
+pubblicato automaticamente su GitHub Pages dal workflow
+[`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) a ogni push su questo
+branch (o su `main`), oltre che manualmente da **Actions → Deploy design system to GitHub Pages →
+Run workflow**.
+
+**Attivazione una tantum (richiede accesso alle impostazioni del repo):** in
+`Settings → Pages → Build and deployment → Source`, seleziona **GitHub Actions**. Dopo la prima
+esecuzione del workflow, il sito sarà disponibile su:
+
+```
+https://gian-astorino.github.io/Pipelean-Design-System/
+```
+
+Per buildare localmente lo stesso export statico usato in produzione:
+
+```bash
+GITHUB_PAGES=true pnpm build   # genera la cartella out/
 ```
 
 ## Estendere il design system
