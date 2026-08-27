@@ -231,7 +231,7 @@ export default function Home() {
             <TrashIcon /> Destructive
           </Button>
           <Button loading>Loading</Button>
-          <Button size="icon" variant="secondary">
+          <Button variant="secondary" iconOnly>
             <PlusIcon />
           </Button>
           <Button size="sm">Small</Button>
@@ -518,7 +518,7 @@ export default function Home() {
           <Tooltip>
             <TooltipTrigger
               render={
-                <Button variant="secondary" size="icon">
+                <Button variant="secondary" iconOnly>
                   <CalendarBlankIcon />
                 </Button>
               }

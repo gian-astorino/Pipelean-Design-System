@@ -301,7 +301,7 @@ export default function DesignSystemPage() {
                   <TrashIcon /> Destructive
                 </Button>
                 <Button loading>Loading</Button>
-                <Button size="icon" variant="secondary">
+                <Button variant="secondary" iconOnly>
                   <PlusIcon />
                 </Button>
               </div>
@@ -483,7 +483,7 @@ export default function DesignSystemPage() {
                 <Tooltip>
                   <TooltipTrigger
                     render={
-                      <Button variant="secondary" size="icon">
+                      <Button variant="secondary" iconOnly>
                         <CalendarBlankIcon />
                       </Button>
                     }

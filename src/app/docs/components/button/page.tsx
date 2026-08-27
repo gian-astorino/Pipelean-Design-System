@@ -8,27 +8,28 @@ import { DocHeader, Demo, DocSection } from "../../_components/doc-page";
 import { ControlsPanel, ControlSelect, ControlSwitch, ControlText } from "../../_components/controls";
 
 const VARIANTS = ["default", "secondary", "ghost", "link", "destructive"] as const;
-const SIZES = ["default", "sm", "lg", "icon"] as const;
+const SIZES = ["default", "sm", "lg"] as const;
 
 export default function ButtonDocPage() {
   const [variant, setVariant] = React.useState<(typeof VARIANTS)[number]>("default");
   const [size, setSize] = React.useState<(typeof SIZES)[number]>("default");
   const [label, setLabel] = React.useState("Bottone");
   const [icon, setIcon] = React.useState(true);
+  const [iconOnly, setIconOnly] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [disabled, setDisabled] = React.useState(false);
 
   const props: string[] = [];
   if (variant !== "default") props.push(`variant="${variant}"`);
   if (size !== "default") props.push(`size="${size}"`);
+  if (iconOnly) props.push("iconOnly");
   if (loading) props.push("loading");
   if (disabled) props.push("disabled");
   const propsStr = props.length ? " " + props.join(" ") : "";
 
-  const code =
-    size === "icon"
-      ? `<Button${propsStr}>\n  <RocketLaunchIcon />\n</Button>`
-      : `<Button${propsStr}>\n  ${icon ? "<RocketLaunchIcon />\n  " : ""}${label}\n</Button>`;
+  const code = iconOnly
+    ? `<Button${propsStr}>\n  <RocketLaunchIcon />\n</Button>`
+    : `<Button${propsStr}>\n  ${icon ? "<RocketLaunchIcon />\n  " : ""}${label}\n</Button>`;
 
   return (
     <div className="flex flex-col gap-10">
@@ -37,7 +38,10 @@ export default function ButtonDocPage() {
         description="Bottone d'azione con varianti, dimensioni, stato di caricamento e icone. Costruito su Base UI (useRender) per essere composto con qualunque elemento (render prop)."
       />
 
-      <DocSection title="Playground">
+      <DocSection
+        title="Playground"
+        description={`"Icona soltanto" non è una size a parte: è un modificatore ortogonale che rende il bottone quadrato mantenendo l'altezza (e tutti gli stati: hover, focus, disabled) della size scelta.`}
+      >
         <Demo
           code={code}
           controls={
@@ -54,10 +58,11 @@ export default function ButtonDocPage() {
                 onChange={(v) => setSize(v as typeof size)}
                 options={SIZES.map((v) => ({ value: v, label: v }))}
               />
-              {size !== "icon" && (
+              <ControlSwitch label="Icona soltanto" checked={iconOnly} onChange={setIconOnly} />
+              {!iconOnly && (
                 <ControlText label="Testo" value={label} onChange={setLabel} />
               )}
-              {size !== "icon" && (
+              {!iconOnly && (
                 <ControlSwitch label="Icona" checked={icon} onChange={setIcon} />
               )}
               <ControlSwitch label="Loading" checked={loading} onChange={setLoading} />
@@ -65,8 +70,14 @@ export default function ButtonDocPage() {
             </ControlsPanel>
           }
         >
-          <Button variant={variant} size={size} loading={loading} disabled={disabled}>
-            {size === "icon" ? (
+          <Button
+            variant={variant}
+            size={size}
+            iconOnly={iconOnly}
+            loading={loading}
+            disabled={disabled}
+          >
+            {iconOnly ? (
               <RocketLaunchIcon />
             ) : (
               <>
@@ -87,7 +98,27 @@ export default function ButtonDocPage() {
               </span>
               {SIZES.map((s) => (
                 <Button key={s} variant={v} size={s}>
-                  {s === "icon" ? <RocketLaunchIcon /> : `${s}`}
+                  {s}
+                </Button>
+              ))}
+            </div>
+          ))}
+        </div>
+      </DocSection>
+
+      <DocSection
+        title="Icona soltanto"
+        description="Stesso modificatore iconOnly applicato a ogni size: l'altezza e tutti gli stati restano identici al bottone testuale corrispondente, cambia solo la forma quadrata."
+      >
+        <div className="flex flex-col gap-4 rounded-lg border p-6">
+          {VARIANTS.map((v) => (
+            <div key={v} className="flex flex-wrap items-center gap-3">
+              <span className="text-muted-foreground w-20 shrink-0 font-mono text-xs">
+                {v}
+              </span>
+              {SIZES.map((s) => (
+                <Button key={s} variant={v} size={s} iconOnly aria-label={`${v} ${s}`}>
+                  <RocketLaunchIcon />
                 </Button>
               ))}
             </div>
@@ -101,6 +132,9 @@ export default function ButtonDocPage() {
           <Button disabled>Disabled</Button>
           <Button variant="secondary" disabled>
             Disabled secondary
+          </Button>
+          <Button iconOnly disabled aria-label="Disabled icon only">
+            <RocketLaunchIcon />
           </Button>
         </div>
       </DocSection>

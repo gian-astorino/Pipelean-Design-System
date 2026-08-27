@@ -34,12 +34,25 @@ const buttonVariants = cva(
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 px-6 has-[>svg]:px-4",
-        icon: "size-9",
+      },
+      // Icon-only isn't a size of its own — it's every size, square and
+      // without label padding, so an icon button shares the exact height
+      // (and every hover/disabled/focus state) of the text button it sits
+      // next to instead of living on a separate "icon" size step.
+      iconOnly: {
+        true: "shrink-0 px-0",
+        false: "",
       },
     },
+    compoundVariants: [
+      { size: "default", iconOnly: true, class: "size-9" },
+      { size: "sm", iconOnly: true, class: "size-8" },
+      { size: "lg", iconOnly: true, class: "size-10" },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
+      iconOnly: false,
     },
   }
 );
@@ -54,6 +67,7 @@ function Button({
   className,
   variant,
   size,
+  iconOnly,
   loading,
   render = <button />,
   children,
@@ -61,7 +75,7 @@ function Button({
 }: ButtonProps) {
   const defaultProps: Record<string, unknown> = {
     "data-slot": "button",
-    className: cn(buttonVariants({ variant, size }), className),
+    className: cn(buttonVariants({ variant, size, iconOnly }), className),
     disabled: loading || props.disabled,
     children: (
       <>
@@ -75,7 +89,7 @@ function Button({
   return useRender({
     render,
     props: defaultProps,
-    state: { variant, size },
+    state: { variant, size, iconOnly },
     defaultTagName: "button",
   });
 }

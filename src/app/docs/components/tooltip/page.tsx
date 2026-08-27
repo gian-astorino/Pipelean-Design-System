@@ -15,7 +15,7 @@ export default function TooltipDocPage() {
   const [text, setText] = React.useState("Pianifica per dopo");
 
   const props = side !== "top" ? ` side="${side}"` : "";
-  const code = `<Tooltip>\n  <TooltipTrigger render={<Button variant="secondary" size="icon"><CalendarBlankIcon /></Button>} />\n  <TooltipContent${props}>${text}</TooltipContent>\n</Tooltip>`;
+  const code = `<Tooltip>\n  <TooltipTrigger render={<Button variant="secondary" iconOnly><CalendarBlankIcon /></Button>} />\n  <TooltipContent${props}>${text}</TooltipContent>\n</Tooltip>`;
 
   return (
     <div className="flex flex-col gap-10">
@@ -42,7 +42,7 @@ export default function TooltipDocPage() {
           <Tooltip>
             <TooltipTrigger
               render={
-                <Button variant="secondary" size="icon">
+                <Button variant="secondary" iconOnly>
                   <CalendarBlankIcon />
                 </Button>
               }
