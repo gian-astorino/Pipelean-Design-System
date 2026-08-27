@@ -32,6 +32,7 @@ export const NAV: DocsNavGroup[] = [
       { slug: "switch", label: "Switch" },
       { slug: "radio-group", label: "Radio Group" },
       { slug: "label", label: "Label" },
+      { slug: "field", label: "Field" },
     ],
   },
   {
