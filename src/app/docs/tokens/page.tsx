@@ -3,7 +3,12 @@ import { StarIcon } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/utils";
 import { TokenGrid } from "@/components/tokens/token-grid";
 import { RadiusPreview } from "@/components/tokens/radius-preview";
-import { PrimitiveRamp, NEUTRAL_PRIMITIVES, BLUE_PRIMITIVES } from "@/components/tokens/primitive-palette";
+import { PrimitiveRamp } from "@/components/tokens/primitive-palette";
+import {
+  ALL_RAMPS,
+  BASE_PRIMITIVES,
+  BRAND_PRIMITIVES,
+} from "@/components/tokens/primitive-data";
 import { CopyChip } from "@/components/tokens/copy-chip";
 import {
   surfaceTokens,
@@ -98,11 +103,20 @@ export default function TokensPage() {
       <DocSection
         id="colori-primitivi"
         title="Colori primitivi"
-        description="Le rampe grezze (Tailwind neutral & blue, in OKLCH) da cui è costruito il tema. Non sono variabili CSS: i token semantici qui sotto incorporano direttamente questi valori."
+        description="Le rampe dai token Figma di Pipelean (Default.tokens.json). Sono vere variabili Tailwind (--color-neutral-500, --color-red-600, …) — utilizzabili ovunque come bg-red-600, text-teal-700, ecc. — e i token semantici qui sotto sono costruiti esattamente su questi valori."
       >
         <div className="flex flex-col gap-6 rounded-lg border p-6">
-          <PrimitiveRamp name="neutral" swatches={NEUTRAL_PRIMITIVES} />
-          <PrimitiveRamp name="blue" swatches={BLUE_PRIMITIVES} />
+          {ALL_RAMPS.map((r) => (
+            <PrimitiveRamp key={r.name} name={r.name} swatches={r.swatches} />
+          ))}
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="rounded-lg border p-6">
+            <PrimitiveRamp name="base" swatches={BASE_PRIMITIVES} />
+          </div>
+          <div className="rounded-lg border p-6">
+            <PrimitiveRamp name="brand (non collegato ai token semantici)" swatches={BRAND_PRIMITIVES} />
+          </div>
         </div>
       </DocSection>
 
