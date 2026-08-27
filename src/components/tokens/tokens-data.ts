@@ -28,9 +28,12 @@ export const stateTokens = [
 ];
 
 export const borderTokens = [
-  { varName: "--border", label: "Border" },
+  { varName: "--border-subtle", label: "Border subtle" },
+  { varName: "--border-default", label: "Border default" },
+  { varName: "--border-strong", label: "Border strong" },
+  { varName: "--border-focus", label: "Border focus" },
+  { varName: "--border-translucent", label: "Border translucent" },
   { varName: "--input", label: "Input" },
-  { varName: "--ring", label: "Ring" },
 ];
 
 export const chartTokens = [

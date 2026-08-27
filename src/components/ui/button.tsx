@@ -21,11 +21,11 @@ const buttonVariants = cva(
       // so they keep their previous token wiring.
       variant: {
         default:
-          "bg-action-primary text-action-primary-foreground shadow-xs hover:bg-action-primary-hover disabled:opacity-100 disabled:shadow-none disabled:bg-action-primary-disabled disabled:text-text-disabled",
+          "bg-action-primary text-action-primary-foreground hover:bg-action-primary-hover disabled:opacity-100 disabled:bg-action-primary-disabled disabled:text-text-disabled",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 disabled:opacity-50",
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive/20 disabled:opacity-50",
         secondary:
-          "border border-border bg-action-secondary text-action-secondary-foreground shadow-xs hover:bg-action-secondary-hover disabled:opacity-100 disabled:shadow-none disabled:bg-action-secondary-disabled disabled:text-text-disabled",
+          "border border-border bg-action-secondary text-action-secondary-foreground hover:bg-action-secondary-hover focus-visible:border-2 disabled:opacity-100 disabled:bg-action-secondary-disabled disabled:text-text-disabled",
         ghost:
           "text-action-ghost-foreground hover:bg-action-ghost-hover disabled:opacity-100 disabled:text-text-disabled",
         link: "text-text-link underline-offset-4 hover:underline disabled:opacity-50",
