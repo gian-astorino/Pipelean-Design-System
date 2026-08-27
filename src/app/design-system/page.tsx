@@ -18,7 +18,9 @@ import {
 
 import { cn } from "@/lib/utils";
 import { copyToClipboard } from "@/lib/clipboard";
-import { useCssVar } from "@/hooks/use-css-var";
+import { TokenGrid } from "@/components/tokens/token-grid";
+import { CopyChip } from "@/components/tokens/copy-chip";
+import { RadiusPreview } from "@/components/tokens/radius-preview";
 
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
@@ -92,8 +94,19 @@ import {
 
 import { SidebarNav, type NavItem } from "./_components/sidebar-nav";
 import { Section, SubSection } from "./_components/section";
-import { TokenSwatch } from "./_components/token-swatch";
 import { IconGallery } from "./_components/icon-gallery";
+import {
+  surfaceTokens,
+  brandTokens,
+  stateTokens,
+  borderTokens,
+  chartTokens,
+  sidebarTokens,
+  typeScale,
+  weightScale,
+  radiusScale,
+  shadowScale,
+} from "@/components/tokens/tokens-data";
 
 const NAV: NavItem[] = [
   { id: "overview", label: "Panoramica" },
@@ -113,155 +126,6 @@ const NAV: NavItem[] = [
     ],
   },
 ];
-
-const surfaceTokens = [
-  { varName: "--background", label: "Background" },
-  { varName: "--foreground", label: "Foreground" },
-  { varName: "--card", label: "Card" },
-  { varName: "--card-foreground", label: "Card foreground" },
-  { varName: "--popover", label: "Popover" },
-  { varName: "--popover-foreground", label: "Popover foreground" },
-];
-
-const brandTokens = [
-  { varName: "--primary", label: "Primary" },
-  { varName: "--primary-foreground", label: "Primary foreground" },
-  { varName: "--secondary", label: "Secondary" },
-  { varName: "--secondary-foreground", label: "Secondary foreground" },
-];
-
-const stateTokens = [
-  { varName: "--muted", label: "Muted" },
-  { varName: "--muted-foreground", label: "Muted foreground" },
-  { varName: "--accent", label: "Accent" },
-  { varName: "--accent-foreground", label: "Accent foreground" },
-  { varName: "--destructive", label: "Destructive" },
-  { varName: "--destructive-foreground", label: "Destructive foreground" },
-  { varName: "--success", label: "Success" },
-  { varName: "--success-foreground", label: "Success foreground" },
-  { varName: "--warning", label: "Warning" },
-  { varName: "--warning-foreground", label: "Warning foreground" },
-];
-
-const borderTokens = [
-  { varName: "--border", label: "Border" },
-  { varName: "--input", label: "Input" },
-  { varName: "--ring", label: "Ring" },
-];
-
-const chartTokens = [
-  { varName: "--chart-1", label: "Chart 1" },
-  { varName: "--chart-2", label: "Chart 2" },
-  { varName: "--chart-3", label: "Chart 3" },
-  { varName: "--chart-4", label: "Chart 4" },
-  { varName: "--chart-5", label: "Chart 5" },
-];
-
-const sidebarTokens = [
-  { varName: "--sidebar", label: "Sidebar" },
-  { varName: "--sidebar-foreground", label: "Sidebar foreground" },
-  { varName: "--sidebar-primary", label: "Sidebar primary" },
-  { varName: "--sidebar-primary-foreground", label: "Sidebar primary fg" },
-  { varName: "--sidebar-accent", label: "Sidebar accent" },
-  { varName: "--sidebar-accent-foreground", label: "Sidebar accent fg" },
-  { varName: "--sidebar-border", label: "Sidebar border" },
-  { varName: "--sidebar-ring", label: "Sidebar ring" },
-];
-
-const typeScale = [
-  { className: "text-xs", label: "xs" },
-  { className: "text-sm", label: "sm" },
-  { className: "text-base", label: "base" },
-  { className: "text-lg", label: "lg" },
-  { className: "text-xl", label: "xl" },
-  { className: "text-2xl", label: "2xl" },
-  { className: "text-3xl", label: "3xl" },
-  { className: "text-4xl", label: "4xl" },
-];
-
-const weightScale = [
-  { className: "font-normal", label: "normal · 400" },
-  { className: "font-medium", label: "medium · 500" },
-  { className: "font-semibold", label: "semibold · 600" },
-  { className: "font-bold", label: "bold · 700" },
-];
-
-const radiusScale = [
-  { varName: "--radius-sm", className: "rounded-sm", label: "sm" },
-  { varName: "--radius-md", className: "rounded-md", label: "md" },
-  { varName: "--radius-lg", className: "rounded-lg", label: "lg" },
-  { varName: "--radius-xl", className: "rounded-xl", label: "xl" },
-];
-
-const shadowScale = [
-  { className: "shadow-xs", label: "xs" },
-  { className: "shadow-sm", label: "sm" },
-  { className: "shadow-md", label: "md" },
-  { className: "shadow-lg", label: "lg" },
-  { className: "shadow-xl", label: "xl" },
-];
-
-function CopyChip({
-  label,
-  copyValue,
-  description,
-}: {
-  label: string;
-  copyValue: string;
-  description?: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={() => copyToClipboard(copyValue, description ?? copyValue)}
-      className="bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md border px-2 py-1 font-mono text-[11px] transition-colors"
-    >
-      {label}
-    </button>
-  );
-}
-
-function TokenGrid({
-  tokens,
-}: {
-  tokens: { varName: string; label: string }[];
-}) {
-  return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-      {tokens.map((token) => (
-        <TokenSwatch key={token.varName} varName={token.varName} label={token.label} />
-      ))}
-    </div>
-  );
-}
-
-function RadiusPreview({
-  varName,
-  className,
-  label,
-}: {
-  varName: string;
-  className: string;
-  label: string;
-}) {
-  const value = useCssVar(varName);
-
-  return (
-    <button
-      type="button"
-      onClick={() => copyToClipboard(className, `${label} · ${value}`)}
-      className="hover:bg-accent/50 flex flex-col items-center gap-2 rounded-lg border p-4 transition-colors"
-    >
-      <div className={cn("bg-primary size-14", className)} />
-      <div className="text-center">
-        <p className="font-mono text-xs font-medium">{className}</p>
-        <p className="text-muted-foreground text-[11px] tabular-nums">
-          {value || "…"}
-        </p>
-      </div>
-    </button>
-  );
-}
 
 export default function DesignSystemPage() {
   const [progress, setProgress] = React.useState(38);

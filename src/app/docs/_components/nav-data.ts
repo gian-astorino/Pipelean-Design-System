@@ -1,9 +1,26 @@
+export interface DocsNavItem {
+  slug: string;
+  label: string;
+  /** Overrides the default `/docs/components/${slug}` link when set. */
+  href?: string;
+}
+
 export interface DocsNavGroup {
   label: string;
-  items: { slug: string; label: string }[];
+  items: DocsNavItem[];
 }
 
 export const NAV: DocsNavGroup[] = [
+  {
+    label: "Fondamenta",
+    items: [
+      { slug: "dimensioni", label: "Dimensioni", href: "/docs/tokens#dimensioni" },
+      { slug: "colori-primitivi", label: "Colori primitivi", href: "/docs/tokens#colori-primitivi" },
+      { slug: "colori-semantici", label: "Colori semantici", href: "/docs/tokens#colori-semantici" },
+      { slug: "elevazione", label: "Elevazione", href: "/docs/tokens#elevazione" },
+      { slug: "tipografia", label: "Tipografia", href: "/docs/tokens#tipografia" },
+    ],
+  },
   {
     label: "Input",
     items: [

@@ -12,11 +12,12 @@ export default function DocsIndexPage() {
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold tracking-tight">Componenti</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Componenti & token</h1>
         <p className="text-muted-foreground max-w-2xl text-sm">
           Ogni componente ha una pagina dedicata con anteprima interattiva,
-          controlli per esplorare le sue varianti (size, tipo, icone, stato…)
-          e lo snippet di codice pronto da copiare.
+          controlli per esplorare le sue varianti (size, tipo, icone, stato…),
+          switch mobile/desktop e lo snippet di codice pronto da copiare. La
+          sezione Fondamenta espone tutti i token del design system.
         </p>
       </div>
 
@@ -27,12 +28,12 @@ export default function DocsIndexPage() {
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((item) => (
-              <Link key={item.slug} href={`/docs/components/${item.slug}`}>
+              <Link key={item.slug} href={item.href ?? `/docs/components/${item.slug}`}>
                 <Card className="hover:border-foreground/20 h-full transition-colors">
                   <CardHeader>
                     <CardTitle className="text-base">{item.label}</CardTitle>
                     <CardDescription className="font-mono text-xs">
-                      components/ui/{item.slug}.tsx
+                      {item.href ? "token" : `components/ui/${item.slug}.tsx`}
                     </CardDescription>
                   </CardHeader>
                 </Card>

@@ -18,16 +18,18 @@ function DocHeader({
 }
 
 function DocSection({
+  id,
   title,
   description,
   children,
 }: {
+  id?: string;
   title: string;
   description?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col gap-4">
+    <section id={id} className="scroll-mt-24 flex flex-col gap-4">
       <div className="flex flex-col gap-1">
         <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
         {description && (
@@ -36,6 +38,30 @@ function DocSection({
       </div>
       {children}
     </section>
+  );
+}
+
+function DocSubSection({
+  id,
+  title,
+  description,
+  children,
+}: {
+  id?: string;
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div id={id} className="scroll-mt-24 flex flex-col gap-3 border-t pt-6 first:border-t-0 first:pt-0">
+      <div className="flex flex-col gap-1">
+        <h3 className="text-sm font-semibold tracking-tight">{title}</h3>
+        {description && (
+          <p className="text-muted-foreground text-xs">{description}</p>
+        )}
+      </div>
+      {children}
+    </div>
   );
 }
 
@@ -68,4 +94,4 @@ function Demo({
   );
 }
 
-export { DocHeader, DocSection, Demo };
+export { DocHeader, DocSection, DocSubSection, Demo };

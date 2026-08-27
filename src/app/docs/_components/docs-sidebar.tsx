@@ -8,19 +8,37 @@ import { cn } from "@/lib/utils";
 
 import { NAV } from "./nav-data";
 
+function useHash() {
+  const [hash, setHash] = React.useState("");
+
+  React.useEffect(() => {
+    const read = () => setHash(window.location.hash);
+    read();
+    window.addEventListener("hashchange", read);
+    return () => window.removeEventListener("hashchange", read);
+  }, []);
+
+  return hash;
+}
+
 function DocsSidebar() {
   const pathname = usePathname();
+  const hash = useHash();
 
   return (
-    <nav aria-label="Componenti" className="flex flex-col gap-6">
+    <nav aria-label="Componenti e token" className="flex flex-col gap-6">
       {NAV.map((group) => (
         <div key={group.label} className="flex flex-col gap-0.5">
           <p className="text-muted-foreground px-2 pb-1 text-xs font-semibold tracking-wide uppercase">
             {group.label}
           </p>
           {group.items.map((item) => {
-            const href = `/docs/components/${item.slug}`;
-            const active = pathname === href || pathname === `${href}/`;
+            const href = item.href ?? `/docs/components/${item.slug}`;
+            const [hrefPath, hrefHash] = href.split("#");
+            const pathActive = pathname === hrefPath || pathname === `${hrefPath}/`;
+            const active = hrefHash
+              ? pathActive && hash === `#${hrefHash}`
+              : pathActive;
             return (
               <Link
                 key={item.slug}
