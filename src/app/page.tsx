@@ -136,7 +136,10 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <Badge variant="outline">maia · neutral · blue</Badge>
           <Button variant="outline" size="sm" render={<Link href="/design-system" />}>
-            Apri vista live
+            Vista live
+          </Button>
+          <Button variant="outline" size="sm" render={<Link href="/docs" />}>
+            Componenti
           </Button>
           <ModeToggle />
         </div>

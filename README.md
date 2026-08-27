@@ -58,6 +58,9 @@ src/
 pnpm install
 pnpm dev      # http://localhost:3000 — homepage
               # http://localhost:3000/design-system — vetrina "live" con token, tipografia, icone
+              # http://localhost:3000/docs — un componente per pagina, con playground interattivo
+              #   (controlli per variant/size/icone/stato) e snippet di codice, sulla falsariga
+              #   di ui.shadcn.com/docs/components
 pnpm build
 pnpm lint
 ```
