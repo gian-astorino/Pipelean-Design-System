@@ -46,10 +46,13 @@ const buttonVariants = cva(
       // stays that same token whether or not there's an icon — no
       // has-[>svg] reduction, so it never falls out of sync with the
       // requested value.
+      // Heights are fixed at 28/36/48px (sm/default/lg) — not on the
+      // 4px spacing scale like padding, an explicit set of three per
+      // this spec.
       size: {
         default: "h-9 px-3 py-2",
-        sm: "h-8 gap-1.5 px-2 py-1",
-        lg: "h-10 px-4 py-3",
+        sm: "h-7 gap-1.5 px-2 py-1",
+        lg: "h-12 px-4 py-3",
       },
       // Icon-only isn't a size of its own — it's every size, square and
       // without label padding, so an icon button shares the exact height
@@ -62,8 +65,8 @@ const buttonVariants = cva(
     },
     compoundVariants: [
       { size: "default", iconOnly: true, class: "size-9" },
-      { size: "sm", iconOnly: true, class: "size-8" },
-      { size: "lg", iconOnly: true, class: "size-10" },
+      { size: "sm", iconOnly: true, class: "size-7" },
+      { size: "lg", iconOnly: true, class: "size-12" },
     ],
     defaultVariants: {
       variant: "default",
