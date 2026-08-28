@@ -3,12 +3,22 @@
 import * as React from "react";
 import { useRender } from "@base-ui/react/use-render";
 import { cva, type VariantProps } from "class-variance-authority";
-import { SpinnerGapIcon } from "@phosphor-icons/react";
+import { IconContext, SpinnerGapIcon, type IconProps } from "@phosphor-icons/react";
 
 import { cn } from "@/lib/utils";
 
+// Icon size/weight per button size, applied via Phosphor's IconContext
+// instead of a CSS rule — sm and default get 16px bold icons, lg gets
+// 24px regular. IconContext only supplies a *default*: any icon that
+// sets its own size or weight prop keeps that value regardless.
+const iconContextBySize: Record<"default" | "sm" | "lg", IconProps> = {
+  default: { size: 16, weight: "bold" },
+  sm: { size: 16, weight: "bold" },
+  lg: { size: 24 },
+};
+
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-[color,box-shadow,background-color,border-color] disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-[color,box-shadow,background-color,border-color] disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring aria-invalid:ring-destructive/20 aria-invalid:border-destructive",
   {
     variants: {
       // default/secondary/ghost are built exclusively from the Figma
@@ -84,10 +94,10 @@ function Button({
     className: cn(buttonVariants({ variant, size, iconOnly }), className),
     disabled: loading || props.disabled,
     children: (
-      <>
+      <IconContext.Provider value={iconContextBySize[size ?? "default"]}>
         {loading && <SpinnerGapIcon className="animate-spin" />}
         {children}
-      </>
+      </IconContext.Provider>
     ),
     ...props,
   };
