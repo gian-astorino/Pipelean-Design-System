@@ -440,6 +440,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* Reshapes whatever border-radius an element already has into a
+       squircle (superellipse) instead of a plain circular arc — a
+       progressive enhancement, currently Chromium-only. corner-shape
+       has no effect without a radius, so this is a no-op everywhere
+       except our rounded-* utilities (including rounded-full pills),
+       and unsupported browsers just render the normal round corner. */
+    corner-shape: squircle;
   }
   body {
     @apply bg-background text-foreground font-sans;
