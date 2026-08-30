@@ -33,14 +33,18 @@ function TooltipTrigger({
 function TooltipContent({
   className,
   sideOffset = 8,
+  side,
+  align,
   children,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Popup> & {
   sideOffset?: number;
+  side?: "top" | "bottom" | "left" | "right";
+  align?: "start" | "center" | "end";
 }) {
   return (
     <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Positioner sideOffset={sideOffset}>
+      <TooltipPrimitive.Positioner sideOffset={sideOffset} side={side} align={align}>
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
           className={cn(
